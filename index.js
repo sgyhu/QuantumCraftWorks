@@ -1,9 +1,10 @@
-function isSymmetric(root) {
-  if (!root) return true;
-  return isMirror(root.left, root.right);
-  function isMirror(left, right) {
-    if (!left && !right) return true;
-    if (!left || !right || left.val !== right.val) return false;
-    return isMirror(left.left, right.right) && isMirror(left.right, right.left);
-  }
-}
+const pullAtValue = (arr, pullArr) => {
+  let removed = [],
+    pushToRemove = arr.forEach((v, i) =>
+      pullArr.includes(v) ? removed.push(v) : v,
+    ),
+    mutateTo = arr.filter((v, i) => !pullArr.includes(v));
+  arr.length = 0;
+  mutateTo.forEach((v) => arr.push(v));
+  return removed;
+};
