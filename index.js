@@ -1,4 +1,4 @@
-const dropRightWhile = (arr, func) => {
-  while (arr.length > 0 && !func(arr[arr.length - 1])) arr = arr.slice(0, -1);
-  return arr;
-};
+function fibonacci(n) {
+  if (n <= 1) return n;
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
